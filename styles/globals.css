@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Optional: Prevent flash of wrong theme */
+html {
+  color-scheme: light dark;
+}
