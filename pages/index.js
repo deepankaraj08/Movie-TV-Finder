@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+// No need to import theme props from _app.jsx anymore
 
 export default function Home() {
   const API_KEY = "76cccd233c3e944ab9d07e0a495acfd9";
@@ -87,7 +88,6 @@ export default function Home() {
         break;
 
       case "anime":
-        // Anime isn't an official genre, but we can search with keyword or genre 16 (animation)
         url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16&sort_by=popularity.desc`;
         break;
 
@@ -100,17 +100,14 @@ export default function Home() {
         break;
 
       case "foreign-language":
-        // Example: French (fr), you can extend with dropdown or something later
         url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_original_language=fr&sort_by=popularity.desc`;
         break;
 
       case "classic":
-        // Movies released before 1980
         url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&primary_release_date.lte=1980-01-01&sort_by=popularity.desc`;
         break;
 
       case "tv-by-network":
-        // Example for Netflix network id = 213 (you can add UI to pick network)
         url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213&sort_by=popularity.desc`;
         break;
 
@@ -258,10 +255,10 @@ export default function Home() {
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-lg w-full relative">
             <button
               onClick={() => setModalData(null)}
-              className="absolute top-2 right-2 text-2xl"
+              className="absolute top-2 right-2 text-2xl dark:text-white"
               aria-label="Close modal"
             >
-              &times;
+              ×
             </button>
             <img
               src={IMG_BASE + modalData.poster_path}
@@ -293,7 +290,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-200 dark:bg-gray-800 text-center text-gray-700 dark:text-gray-300 py-4 mt-auto shadow-inner">
-        <p>© {new Date().getFullYear()} Movie & TV Finder. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} 🍿 PopcornMeter. All rights reserved.</p>
       </footer>
     </div>
   );
