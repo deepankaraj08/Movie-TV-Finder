@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 // No need to import theme props from _app.jsx anymore
 
 export default function Home() {
-  const API_KEY = "76cccd233c3e944ab9d07e0a495acfd9";
+ const API_KEY = process.env.NEXT_PUBLIC_MOVIE_API_KEY;
+
   const IMG_BASE = "https://image.tmdb.org/t/p/w500";
 
   const [movies, setMovies] = useState([]);
